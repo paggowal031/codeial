@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>
+            <%=locals.title%>
+        </title>
+        <link rel="stylesheet" href="/css/layout.css">
+        <!-- need to add style tag here which are coming from individual files -->
+        <%- style %>
+    </head>
+    <body>
+        <%- include('_header');%>  
+       
+        <!-- put variable part code here -->
+        <%- body %>
+
+        <%- include('_footer');%>  
+
+
+        <!-- need to add script tag here which are coming from individual files -->
+        <%- script %>
+
+    </body>
+</html>
