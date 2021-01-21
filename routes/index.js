@@ -3,6 +3,7 @@ const router=express.Router();
 
 const homeController=require('../controllers/home_controller');
 const postsController=require('../controllers/posts_controller');
+const { route } = require('./users');
 
 
 console.log("router loaded");

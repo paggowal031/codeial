@@ -1,0 +1,65 @@
+
+<html>
+    <head>
+        <title>
+            <%=locals.title%>
+        </title>
+         <!-- Place your kit's code here -->
+      <script src="https://kit.fontawesome.com/6c42c1abc7.js" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="/css/sign_up.css">
+
+    </head>
+    <body>
+        <h1 id="page-heading">Sign Up Form</h1>
+        <form id="sign-up-form" action="/users/create" method="POST">
+            <div>
+            <label for="name">Full Name</label>
+            <input name="name" id="name" required type="text" placeholder="Enter your full name">
+            </div>
+            <hr>
+            <div>
+                <label for="email">Email </label>
+                <input name="email" id="email" required type="email" placeholder="Enter your email address ">
+            </div>
+            <hr>
+            <div>
+                <label for="password">Password </label>
+                <input name="password" id="password" required type="password" placeholder="Enter your password">
+            </div>
+            <hr>
+            <div>
+                <label for="confirm_password">Confirm Password </label>
+                <input name="confirm_password" id="confirm_password" required type="password" placeholder="Confirm your password">
+            </div>
+            <hr>
+            <div>
+                <label for="phone">Mobile Number</label>
+                <input id="phone" name="phone" type="text" placeholder="Enter your mobile number ">
+            </div>
+            <hr>
+            <div>
+                <label for="gender">Gender</label>
+                <select name="gender" required >
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Transgender">Transgender</option>
+                    <option value="Other" selected>Other</option>
+                </select>
+            </div>
+            <hr>
+            <div>
+                <label for="dob">Date of Birth</label>
+                <input id="dob" name="dob" type="date" placeholder="Enter your date of birth">
+            </div>
+            <hr>
+            <div>
+                <div>
+                    <button type="submit" name="sign-up-button" id="submit-button">
+                        <i class="fas fa-user-plus"></i>
+                        Sign in
+                   </button>
+            </div>
+
+        </form>
+    </body>
+</html>
