@@ -12,7 +12,11 @@ module.exports.profile=function(req,res){
 //For sign in
 module.exports.signIn=function(req,res){
 
-    res.render('user_sign_in',{
+    if(req.isAuthenticated()){
+      return  res.redirect('/users/profile')
+    }
+
+   return res.render('user_sign_in',{
         title:"Codeial | Sign In"
     });
 };
@@ -20,7 +24,11 @@ module.exports.signIn=function(req,res){
 //for sign up
 module.exports.signUp=function(req,res){
 
-    res.render('user_sign_up',{
+    if(req.isAuthenticated()){
+      return  res.redirect('/users/profile')
+    }
+
+   return res.render('user_sign_up',{
         title:"Codeial | Sign Up"
     });
 };
@@ -60,5 +68,11 @@ module.exports.create=function(req,res){
 
 //create session between user and server (SIGN IN)
 module.exports.createSession=function(req,res){
-    //TO DO LATER
+    return res.redirect('/'); 
+}
+
+//destroy session that is sign out
+module.exports.destroySession=function(req,res){
+    req.logout();
+    return res.redirect('/');
 }
