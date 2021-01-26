@@ -24,7 +24,9 @@ app.use(sassMiddleware({
 app.use(express.urlencoded());
 
 app.use(cookieParser());
+
 app.use(express.static('assets'));
+
 app.use(expressLayouts);
 
 
