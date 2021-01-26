@@ -1,0 +1,39 @@
+#layout-header{
+  nav{
+    background-color:  rgb(93, 168, 32);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    color: white;
+    box-shadow: 1px 1px 1px 1px lightgrey;
+
+    .logo{ 
+      margin: 5px;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+    .auth-links{
+      ul{
+        list-style: none;
+        margin: 5% 5px;
+        display: flex;
+
+        li{
+            margin-right: 10px;
+            button{
+              background-color: blanchedalmond;
+              a{
+                color: black;
+              }
+            }
+        }
+    }
+   }
+    a{
+      color: white;
+      text-decoration: none;
+  }
+
+  }
+
+}

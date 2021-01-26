@@ -3,15 +3,22 @@
         <title>
             <%=locals.title%>
         </title>
+        <!-- Place your kit's code here -->
+      <script src="https://kit.fontawesome.com/6c42c1abc7.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="/css/layout.css">
         <!-- need to add style tag here which are coming from individual files -->
+        <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/footer.css">
+
         <%- style %>
     </head>
     <body>
         <%- include('_header');%>  
        
         <!-- put variable part code here -->
+        <main id="layout-main">
         <%- body %>
+        </main>
 
         <%- include('_footer');%>  
 

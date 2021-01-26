@@ -1,0 +1,27 @@
+body{
+    margin: 0px;
+
+}
+
+#page-heading{
+    color: rgb(93, 168, 32);
+    size: 100px;
+}
+#page-heading:hover{
+    color:rgb(109, 182, 26);
+}
+div label{
+    color: rgb(123, 177, 22);
+}
+hr{
+    margin-left: 40rem;
+    margin-right: 40rem;
+}
+
+#submit-button{
+    background-color:rgb(93, 168, 32);
+    color: white;
+}
+#submit-button:hover{
+    background-color: rgb(109, 182, 26);;
+}

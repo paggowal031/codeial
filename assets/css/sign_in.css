@@ -1,27 +1,30 @@
-body{
-    margin: 0px;
-
+body {
+  margin: 0px;
 }
 
-#page-heading{
-    color: rgb(93, 168, 32);
-    size: 100px;
-}
-#page-heading:hover{
-    color:rgb(109, 182, 26);
-}
-div label{
-    color: rgb(123, 177, 22);
-}
-hr{
-    margin-left: 40rem;
-    margin-right: 40rem;
+#page-heading {
+  color: #5da820;
+  size: 100px;
 }
 
-#submit-button{
-    background-color:rgb(93, 168, 32);
-    color: white;
+#page-heading:hover {
+  color: #6db61a;
 }
-#submit-button:hover{
-    background-color: rgb(109, 182, 26);;
+
+div label {
+  color: #7bb116;
+}
+
+hr {
+  margin-left: 40rem;
+  margin-right: 40rem;
+}
+
+#submit-button {
+  background-color: #5da820;
+  color: white;
+}
+
+#submit-button:hover {
+  background-color: #6db61a;
 }
