@@ -1,8 +1,11 @@
 #post-list-container{
-    // background-color: rgb(185, 180, 180);
     ul{
-        #post-list{
-            list-style-type: none;
+        list-style-type: none;
+        div{
+            background-color: rgb(212, 209, 209);
+            margin-left: 25rem;
+            margin-right: 25rem;
         }
+        
     }
 }

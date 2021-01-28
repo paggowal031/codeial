@@ -19,15 +19,29 @@
              <h3>Posts</h3>
              <ul>
                  <% for(post of posts){%>
+                    <div>
                     <p>
-                    <li id="post-list">
+                    <li>
                         <%=post.content%>
-                    </li>
+                   
                     <br>
                     <small>
                         <%=post.user.name%>
                     </small>
+                    </div>
+                    <div class="post-comments">
+                        <%if(locals.user){%>
+                        <form action="/comments/create" method="post">
+                            <input type="text" name="content" placeholder="Add a comment here...">
+                            <!-- id of post on which comment need to be added -->
+                            <input type="hidden" name="post" value="<%=post._id%>">
+                            <input type="submit" value="Add Comment">
+                        </form>
+                        <%}%>
+                    </div>
+                    </li>
                     </p>
+
                     <%}%>
              </ul>
          </div>
