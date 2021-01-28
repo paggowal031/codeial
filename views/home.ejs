@@ -1,7 +1,8 @@
+<link rel="stylesheet" href="/css/home.css">
 
       <h1>
           Codeial / <%=locals.title%>
-          <img src="../assets/images/logo.png" alt="connectUs" height="100px" width="100px">
+          <img src="../assets/images/logo.png"  height="100px" width="100px">
     
      </h1>
 
@@ -11,5 +12,22 @@
              <textarea name="content" id="new-post-content" cols="30" rows="3" placeholder="Type here..."></textarea>
              <input type="submit" value="post">
          </form>
+
+         <div id="post-list-container">
+             <h3>Posts</h3>
+             <ul>
+                 <% for(post of posts){%>
+                    <p>
+                    <li id="post-list">
+                        <%=post.content%>
+                    </li>
+                    <br>
+                    <small>
+                        <%=post.user.name%>
+                    </small>
+                    </p>
+                    <%}%>
+             </ul>
+         </div>
      </section>
       
