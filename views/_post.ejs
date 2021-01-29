@@ -1,0 +1,19 @@
+<div class="post-div">
+ <p>
+     <%if((locals.user)&&(locals.user.id==post.user.id)){%>
+      <form action="/posts/destroy/<%=post.id%>">
+      <button type="submit" name="destroy-post" id="destroy-post" >
+         <i class="fas fa-eraser"></i>
+         Delete post
+        </button>
+      </form>
+     <%}%>
+     <li>
+     <%=post.content%>
+      <br>
+      <small>
+          <%=post.user.name%>
+      </small>
+     </li>
+ </p>
+</div>
