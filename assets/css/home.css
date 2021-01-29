@@ -7,3 +7,13 @@
   margin-left: 25rem;
   margin-right: 25rem;
 }
+
+#post-comments-list-container .post-comment-list {
+  list-style-type: none;
+}
+
+#post-comments-list-container .post-comment-list div {
+  background-color: #443d3d;
+  margin-left: 25rem;
+  margin-right: 25rem;
+}

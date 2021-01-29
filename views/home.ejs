@@ -28,22 +28,42 @@
                     <small>
                         <%=post.user.name%>
                     </small>
+                    </li>
+                    </p>
                     </div>
+             </ul>
                     <div class="post-comments">
                         <%if(locals.user){%>
                         <form action="/comments/create" method="post">
-                            <input type="text" name="content" placeholder="Add a comment here...">
+                            <input type="text" name="content" placeholder="Add a comment here..." required>
                             <!-- id of post on which comment need to be added -->
                             <input type="hidden" name="post" value="<%=post._id%>">
                             <input type="submit" value="Add Comment">
                         </form>
                         <%}%>
-                    </div>
-                    </li>
-                    </p>
 
-                    <%}%>
-             </ul>
+                        <div class="post-comments-list-container">
+                            <ul class="post-comment-list" id="post-comment-<%=post._id%>">
+                                <%for(comment of post.comments){%>
+                                    <div id="div-loop-comments">
+                                        <p>
+                                        <li>
+                                            <%=comment.content%>
+                                       <br>
+                                        <small>
+                                            <%=comment.user.name%>
+                                        </small>
+                                        </li>
+                                        </p>
+                                    </div>
+                                <%}%>
+                                <hr>
+                            </ul>
+
+                        </div>
+
+                    </div>
+                <%}%>
          </div>
      </section>
       
