@@ -23,3 +23,30 @@ module.exports.create=function(req,res){
         }
     });
 }
+
+module.exports.destroy=function(req,res){
+       //find the comment
+       Comment.findById(req.params.id,function(err,comment){
+           if(err){
+            console.log("Error in finding  comment while deleting");
+           }
+           if(comment.user==req.user.id){
+               //delete |  before delete, fetch post.id to delete from there also
+               let postId=comment.post;
+               comment.remove();
+
+               Post.findByIdAndUpdate(postId,{$pull:{
+                   comments:req.params.id
+               }},function(err,post){
+                   if(err){
+                    console.log("Error in deleting comment from post");
+                   }
+
+                   return res.redirect('back');
+               });
+           }else{
+               //if doesn't match
+               return res.redirect('back');
+           }
+       });
+}

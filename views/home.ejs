@@ -16,7 +16,7 @@
              </button>
          </form>
          <%}%>
-
+       
          <div id="post-list-container">
              <h3>Posts</h3>
              <ul>
@@ -54,16 +54,26 @@
 
                         <div class="post-comments-list-container">
                             <ul class="post-comment-list" id="post-comment-<%=post._id%>">
+                                <h4>Comments</h4>
                                 <%for(comment of post.comments){%>
                                     <div id="div-loop-comments">
                                         <p>
-                                        <li>
-                                            <%=comment.content%>
-                                       <br>
-                                        <small>
-                                            <%=comment.user.name%>
-                                        </small>
-                                        </li>
+                                         <%if((locals.user)&&(locals.user.id==comment.user.id)){%>
+                                         <form action="/comments/destroy/<%=comment.id%>">
+                                          <button type="submit" name="destroy-post" id="destroy-post" >
+                                          <i class="fas fa-eraser"></i>
+                                          Delete comment
+                                          </button>
+                                         </form>
+                                         <%}%>
+                                         <li>
+                                         <%=comment.content%>
+                                         <br>
+                                         <small>
+                                         By-
+                                         <%=comment.user.name%>
+                                         </small>
+                                         </li>
                                         </p>
                                     </div>
                                 <%}%>

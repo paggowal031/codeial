@@ -1,32 +1,34 @@
 
 #post-list-container{
+    background-color: rgb(236, 231, 231); 
+    margin-left: 25rem;
+    margin-right: 25rem;
     ul{
         list-style-type: none;
         .post-div{
-            background-color: rgb(212, 209, 209);
-            margin-left: 25rem;
-            margin-right: 25rem;
-            p{
-                form{
-                    buttton{
-                        color:rgb(109, 182, 26);
-                    }
-                }
-            }
-        }
+           
+           
         
     }
 }
+#destroy-post{
+    background-color: white;
+    color:rgb(109, 182, 26);
+}
+#destroy-post:hover{
+    background-color :rgb(109, 182, 26);
+    color: white;
+}
+}
 
-#post-comments-list-container{
+.post-comments-list-container{
     .post-comment-list{
         list-style-type: none;
         div{
-            background-color: rgb(68, 61, 61);
-            margin-left: 30rem;
-            margin-right: 30rem;
-        }
-        
-    }
+            background-color: rgb(189, 184, 184);
+            margin-right: 4rem;
 
+        }
+    }
 }
+
