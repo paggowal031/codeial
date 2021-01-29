@@ -60,6 +60,8 @@ module.exports.create=function(req,res){
             });
         }else{
             //if user already present
+            console.log(user);
+            console.log("Error||User already exist");
             return res.redirect('back');
         }
     });

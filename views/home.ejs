@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/css/home.css">
 
       <h1>
-          Codeial / <%=locals.title%>
+           <%=locals.title%>
           <img src="../assets/images/logo.png"  height="100px" width="100px">
     
      </h1>
@@ -11,7 +11,9 @@
          <%if(locals.user){%>
          <form action="/posts/create" id="new-post-form" method="POST">
              <textarea name="content" id="new-post-content" cols="30" rows="3" placeholder="Type here..."></textarea>
-             <input type="submit" value="post">
+             <button type="submit" value="post">
+                 Post
+             </button>
          </form>
          <%}%>
 
@@ -19,8 +21,16 @@
              <h3>Posts</h3>
              <ul>
                  <% for(post of posts){%>
-                    <div>
+                    <div class="post-div">
                     <p>
+                        <%if((locals.user)&&(locals.user.id==post.user.id)){%>
+                        <form action="/posts/destroy/<%=post.id%>">
+                        <button type="submit" name="destroy-post" id="destroy-post" >
+                            <i class="fas fa-eraser"></i>
+                            Delete post
+                        </button>
+                        </form>
+                        <%}%>
                     <li>
                         <%=post.content%>
                    

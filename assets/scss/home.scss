@@ -2,10 +2,17 @@
 #post-list-container{
     ul{
         list-style-type: none;
-        div{
+        .post-div{
             background-color: rgb(212, 209, 209);
             margin-left: 25rem;
             margin-right: 25rem;
+            p{
+                form{
+                    buttton{
+                        color:rgb(109, 182, 26);
+                    }
+                }
+            }
         }
         
     }
@@ -16,8 +23,8 @@
         list-style-type: none;
         div{
             background-color: rgb(68, 61, 61);
-            margin-left: 25rem;
-            margin-right: 25rem;
+            margin-left: 30rem;
+            margin-right: 30rem;
         }
         
     }
