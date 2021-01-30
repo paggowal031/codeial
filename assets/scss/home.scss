@@ -1,54 +1,87 @@
-
-
-#post-list-container{
-    background-color: rgb(236, 231, 231); 
-    margin-left: 25rem;
-    margin-right: 25rem;
-    ul{
-        list-style-type: none;
-        .post-div{
-           
-           margin-top: 20px;
-        
-    }
-}
-#destroy-post{
-    background-color: white;
-    color:rgb(109, 182, 26);
-}
-#destroy-post:hover{
-    background-color :rgb(109, 182, 26);
-    color: white;
-}
-}
-
-.post-comments-list-container{
-    .post-comment-list{
-        list-style-type: none;
-        div{
-            background-color: rgb(189, 184, 184);
-            margin-right: 4rem;
-
-        }
-    }
-}
-
 #img-logo {
     background-image: url("/images/logo.jpg");
     height:15vh;
     width: 40vw;
+    max-width:70% ;
     background-repeat: no-repeat;
     background-size:auto 100%;
-    background-position: center;
-    margin-left: 25rem;
     
   }
 
-  #user_friends{
-      .friends-container{
-        background-color: rgb(236, 231, 231); 
-        margin-left: 25rem;
-        margin-right: 25rem;
+#home-container{
+    display:flex;
 
-      }
-  }
+    #feed-section{
+        width: 70%;
+        padding: 10px;
+    }
+
+    #user-friends{
+        width: 30%;
+        padding: 10px;
+        border: 1px solid rgb(145, 144, 144);
+        line-height: 100%;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+// #post-list-container{
+//     background-color: rgb(236, 231, 231); 
+//     margin-left: 25rem;
+//     margin-right: 25rem;
+//     ul{
+//         list-style-type: none;
+//         .post-div{
+           
+//            margin-top: 20px;
+        
+//     }
+// }
+// #destroy-post{
+//     background-color: white;
+//     color:rgb(109, 182, 26);
+// }
+// #destroy-post:hover{
+//     background-color :rgb(109, 182, 26);
+//     color: white;
+// }
+// }
+
+// .post-comments-list-container{
+//     .post-comment-list{
+//         list-style-type: none;
+//         div{
+//             background-color: rgb(189, 184, 184);
+//             margin-right: 4rem;
+
+//         }
+//     }
+// }
+
+// #img-logo {
+//     background-image: url("/images/logo.jpg");
+//     height:15vh;
+//     width: 40vw;
+//     background-repeat: no-repeat;
+//     background-size:auto 100%;
+//     background-position: center;
+//     margin-left: 25rem;
+    
+//   }
+
+//   #user_friends{
+//       .friends-container{
+//         background-color: rgb(236, 231, 231); 
+//         margin-left: 25rem;
+//         margin-right: 25rem;
+
+//       }
+//   }
