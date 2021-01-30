@@ -6,3 +6,36 @@
       <p><%=profile_user.email%></p>
 
       
+      <%if(user.id==profile_user.id){%>
+        <!-- if user match then show update form -->
+        <form action="/users/update/<%=profile_user.id%>" method="POST">
+            <h2>Update Profile</h2>
+            <div>
+                <label for="name">Full Name</label>
+                <input name="name" id="name" required type="text" placeholder="Enter your full name" value="<%=profile_user.name%>">
+                </div>
+                <hr>
+                <div>
+                    <label for="email">Email </label>
+                    <input name="email" id="email" required type="email" placeholder="Enter your email address " value="<%=profile_user.email%>">
+                </div>
+                <hr>
+                <div>
+                    <label for="phone">Mobile Number</label>
+                    <input id="phone" name="phone" type="text" placeholder="Enter your mobile number " value="<%=profile_user.phone%>">
+                </div>
+                <hr>
+                <div>
+                    <label for="dob">Date of Birth</label>
+                    <input id="dob" name="dob" type="date" placeholder="Enter your date of birth" value="<%=profile_user.dob%>">
+                </div>
+                <hr>
+                <div>
+                    <div>
+                        <button type="submit" name="update-button" id="submit-button">
+                            Update
+                       </button>
+                </div>
+
+        </form>
+        <%}%>
