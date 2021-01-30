@@ -1,6 +1,47 @@
-#contact{
+
+#footer-container{
+    display: flex;
     width: 100%;
     height: auto;
     background-image: linear-gradient(to right,green,rgb(69, 165, 45),green);
+    #contact{
+        .section-heading{
+         text-align: center;
+        }
+        #contact-container{
+            #contact-form-container{
+                #contact-form{
+                    #input-name{
+                        margin: 10px;
+                        padding: 5px;
+                        display: inline;
+
+                    }
+                    #input-email{
+                        margin: 10px;
+                        padding: 5px;
+                        display: inline;
+                    }
+                    #input-message{
+                        margin: 10px;
+                        padding: 5px;
+                        display: block;
+
+                    }
+                    .sub-btn{
+                        background-color: white;
+                        color:rgb(109, 182, 26);
+                        margin-left: 7rem;
+                    }
+                    .sub-btn:hover{
+                        background-color :rgb(109, 182, 26);
+                         color: white;
+                    }
+                }
+
+            }
+        }
+    }
+
     
 }

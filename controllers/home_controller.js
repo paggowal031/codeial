@@ -1,10 +1,36 @@
 const Post=require('../models/post');
 const User=require('../models/user');
 
-module.exports.home=function(req,res){
+module.exports.home=async function(req,res){
 
-   // return res.end('<h1>Express is up for codeial</h1>');
-   //error in this
+
+  //using async await
+  try{
+    let posts= await Post.find({})
+   .populate('user')
+   .populate({
+       path:'comments',
+       populate:{
+           path:'user'
+       }
+   });
+
+   let users=await  User.find({});
+
+   return res.render('home',{
+    title:"connectUs | Home",
+    posts:posts,
+    all_users:users
+    });
+
+  }catch(err){
+    console.log("Error",err);
+    return;
+
+  }
+ 
+
+  /*
    //populate the user of each post
    Post.find({})
    .populate('user')
@@ -32,6 +58,7 @@ module.exports.home=function(req,res){
     
     
   });
+  */
 }
 
 //module.exports.actionName=function(req,res){};

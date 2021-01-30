@@ -21,4 +21,5 @@
   padding: 10px;
   border: 1px solid #919090;
   line-height: 100%;
+  background-image: linear-gradient(to right, lightgray, #ada8a8, #756f6f);
 }
