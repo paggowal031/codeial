@@ -35,3 +35,13 @@
   color: white;
   text-decoration: none;
 }
+
+#img-logoo {
+  background-image: url("/images/logo.jpg");
+  height: 5vh;
+  width: 40vw;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: center;
+  margin-left: 25rem;
+}

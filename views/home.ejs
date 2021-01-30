@@ -2,12 +2,13 @@
 
       <h1>
            <%=locals.title%>
-          <img src="../assets/images/logo.png"  height="100px" width="100px">
+          <div id="img-logo" ></div>
     
      </h1>
 
      <section id="home-section">
          <h4 id="post-heading">Add Posts</h4>
+        
          <%if(locals.user){%>
          <form action="/posts/create" id="new-post-form" method="POST">
              <textarea name="content" id="new-post-content" cols="30" rows="3" placeholder="Type here..."></textarea>
@@ -52,3 +53,17 @@
          </div>
      </section>
       
+
+     <section id="user_friends">
+         <h4>Friends</h4>
+         <%for(u of all_users){%>
+            <div class="Friends-container">
+            <p>
+                <a href="/users/profile/<%=u.id%>">
+                    <%=u.name%>
+                </a>
+            </p>
+        </div>
+        <%}%> 
+
+     </section>

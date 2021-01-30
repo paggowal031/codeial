@@ -1,4 +1,5 @@
 const Post=require('../models/post');
+const User=require('../models/user');
 
 module.exports.home=function(req,res){
 
@@ -14,16 +15,22 @@ module.exports.home=function(req,res){
        }
    })
    .exec(function(err,posts){
-    
-    if(err){
-     console.log("Error in fetching post from database");
-    }
-    
-    console.log(posts);
-    return res.render('home',{
-    title:"connectUs | Home",
-    posts:posts
+
+    User.find({},function(err,users){
+     
+      if(err){
+        console.log("Error in fetching post from database");
+       }
+       
+       console.log(posts);
+       return res.render('home',{
+       title:"connectUs | Home",
+       posts:posts,
+       all_users:users
+       });
     });
+    
+    
   });
 }
 
