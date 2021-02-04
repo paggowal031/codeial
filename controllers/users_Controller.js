@@ -94,11 +94,13 @@ module.exports.create=function(req,res){
 
 //create session between user and server (SIGN IN)
 module.exports.createSession=function(req,res){
+    req.flash('success','Logged in successfully');
     return res.redirect('/'); 
 }
 
 //destroy session that is sign out
 module.exports.destroySession=function(req,res){
+    req.flash('success','Logged Out successfully');
     req.logout();
     return res.redirect('/');
 }

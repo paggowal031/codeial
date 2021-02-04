@@ -12,6 +12,13 @@
     </head>
     <body>
         <%- include('_header');%>  
+
+        <!-- flash message -->
+        <%if(flash.success && flash.success.length>0){%>
+            <h5>
+                <%=flash.success%>
+            </h5>
+        <%}%>
        
         <!-- put variable part code here -->
        
