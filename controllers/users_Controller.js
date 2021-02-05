@@ -7,6 +7,7 @@ module.exports.profile=function(req,res){
     //find user
     User.findById(req.params.id,function(err,user){
         if(err){
+            req.flash('error','Error in showing user profile');
             console.log("Error in showing user profile");
         }
         return res.render('user_profile',{
@@ -22,6 +23,7 @@ module.exports.update=function(req,res){
         User.findByIdAndUpdate(req.params.id,req.body,function(err,user){
             console.log(req.body);
             if(err){
+                req.flash('error','Error in updating user');
                 console.log("Error in updating user");
             }
             return res.redirect('back');
@@ -62,7 +64,8 @@ module.exports.create=function(req,res){
    
     //first check whether password and confirm password are same or not
     if(req.body.passowrd!=req.body.confirm_password){
-    //return res.redirect('back');
+        req.flash('error','Password and Confirm password does not match');
+    return res.redirect('back');
     }
     //if both password are same then check whether a user with same email id is present or not
     User.findOne({email:req.body.email},function(err,user){
@@ -85,6 +88,7 @@ module.exports.create=function(req,res){
         }else{
             //if user already present
             console.log(user);
+            req.flash('error','Error || User Already Exist');
             console.log("Error||User already exist");
             return res.redirect('back');
         }

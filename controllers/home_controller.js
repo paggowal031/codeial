@@ -24,7 +24,8 @@ module.exports.home=async function(req,res){
     });
 
   }catch(err){
-    console.log("Error",err);
+    // console.log("Error",err);
+    req.flash('error',err);
     return;
 
   }

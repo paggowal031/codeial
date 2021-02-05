@@ -4,7 +4,9 @@
             <%=locals.title%>
         </title>
         <!-- Place your kit's code here -->
-      <script src="https://kit.fontawesome.com/6c42c1abc7.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+        <script src="https://kit.fontawesome.com/6c42c1abc7.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="/css/layout.css">
         <!-- need to add style tag here which are coming from individual files -->
 
@@ -14,11 +16,11 @@
         <%- include('_header');%>  
 
         <!-- flash message -->
-        <%if(flash.success && flash.success.length>0){%>
+        <!-- <%if(flash.success && flash.success.length>0){%>
             <h5>
                 <%=flash.success%>
             </h5>
-        <%}%>
+        <%}%> -->
        
         <!-- put variable part code here -->
        
@@ -31,6 +33,30 @@
 
         <!-- need to add script tag here which are coming from individual files -->
         <%- script %>
+        <script>
+            <% if(flash.success && flash.success.length>0){%>
+                new Noty({
+                    theme:'relax',
+                    text:'<%=flash.success%>',
+                    type:'success',
+                    layout:'topRight',
+                    timeout:1500
+                }).show();
+            <%}%>
+
+            <% if(flash.error && flash.error.length>0){%>
+                new Noty({
+                    theme:'relax',
+                    text:'<%=flash.error%>',
+                    type:'error',
+                    layout:'topRight',
+                    timeout:1500
+                }).show();
+            <%}%>
+            </script>
+        
+
+        
 
     </body>
 </html>

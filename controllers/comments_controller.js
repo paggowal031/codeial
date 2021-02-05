@@ -17,12 +17,14 @@ module.exports.create=async function(req,res){
      //comment created then add it to post
      post.comments.push(comment)
      post.save();
+     req.flash('success','Comment added successfully');
      return res.redirect('/');
 
     }
   
  }catch(err){
-     console.log("Error",err);
+    //  console.log("Error",err);
+    req.flash('error',err);
      return;
 
     }
@@ -44,16 +46,18 @@ module.exports.destroy=async function(req,res){
            let post=await Post.findByIdAndUpdate(postId,{$pull:{
                 comments:req.params.id
            }});
-           
+           req.flash('success','Comment deleted successfully');
            return res.redirect('back');
            
         }else{
             //if doesn't match
+            req.flash('error','Not Authorized');
             return res.redirect('back');
         }
 
        }catch{
-           console.log("Error",err);
+          //  console.log("Error",err);
+          req.flash('error',err);
            return;
        }
     
