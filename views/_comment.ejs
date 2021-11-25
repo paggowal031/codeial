@@ -1,26 +1,21 @@
-<ul class="post-comment-list" id="post-comment-<%=post._id%>">
-    <h4>Comments</h4>
-    <%for(comment of post.comments){%>
-        <div id="div-loop-comments">
-            <p>
-             <%if((locals.user)&&(locals.user.id==comment.user.id)){%>
-             <form action="/comments/destroy/<%=comment.id%>">
-              <button type="submit" name="destroy-post" id="destroy-post" >
-              <i class="fas fa-eraser"></i>
-              Delete comment
-              </button>
-             </form>
-             <%}%>
-             <li>
-             <%=comment.content%>
-             <br>
-             <small>
-             By-
-             <%=comment.user.name%>
-             </small>
-             </li>
-            </p>
-        </div>
-    <%}%>
-    <!-- <hr> -->
-</ul>
+
+<li>
+    <p>
+        <% if (locals.user && locals.user.id == comment.user.id){ %>
+        <small>
+            <form action="/comments/destroy/<%=comment.id%>">
+                <button type="submit" name="destroy-post" id="destroy-post" class="delete-comment-button" >
+                 <i class="fas fa-eraser"></i>
+                 Delete comment
+                </button>
+            </form>
+        </small>
+        <% } %>
+        <%= comment.content %>
+        <br>
+        <small>
+            <%= comment.user.name %>
+        </small>
+    </p>    
+
+</li>

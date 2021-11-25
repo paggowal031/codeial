@@ -9,19 +9,49 @@
   }
 
 #home-container{
-    display:flex;
-
-    #feed-section{
-        width: 70%;
-        padding: 10px;
+     margin: 0%;
+     padding: 0%;
+     display: flex;
+    #entertainemt{
+        width:25%;
+        min-height: auto;
+        height: 100%;
+        background-image: linear-gradient(to right,rgb(216, 216, 216),rgb(248, 248, 248),rgb(221, 218, 218));
+ 
+    }
+    #feed-posts{
+        #feed-posts-div{
+            padding-left: 15%;
+            margin:0%;
+        #posts-list-container{
+           padding: 0%; 
+            ul{
+                li{ 
+                    list-style: none;
+                    border: 1px solid rgb(241, 241, 241);
+                    padding: 1%;
+                    margin: 1%;
+                #delete-button-div{
+                 margin-left: 80%;   
+                }
+                }
+                padding: 0%;
+            }
+        }
+        }
+       width: 65%;
+      
     }
 
     #user-friends{
-        width: 30%;
-        padding: 10px;
-        border: 1px solid rgb(145, 144, 144);
-        line-height: 100%;
-        background-image: linear-gradient(to right,lightgray,rgb(173, 168, 168),rgb(117, 111, 111));
+        height: 100%;
+        width: 15%;
+        padding: 0px;
+        border: 0.5px solid rgb(216, 214, 214);
+        line-height:100%;
+        margin-left: 0px;
+        background-image: linear-gradient(to right,rgb(216, 216, 216),rgb(248, 248, 248),rgb(221, 218, 218));
+        
     }
 
 }
@@ -30,59 +60,3 @@
 
 
 
-
-
-
-
-// #post-list-container{
-//     background-color: rgb(236, 231, 231); 
-//     margin-left: 25rem;
-//     margin-right: 25rem;
-//     ul{
-//         list-style-type: none;
-//         .post-div{
-           
-//            margin-top: 20px;
-        
-//     }
-// }
-// #destroy-post{
-//     background-color: white;
-//     color:rgb(109, 182, 26);
-// }
-// #destroy-post:hover{
-//     background-color :rgb(109, 182, 26);
-//     color: white;
-// }
-// }
-
-// .post-comments-list-container{
-//     .post-comment-list{
-//         list-style-type: none;
-//         div{
-//             background-color: rgb(189, 184, 184);
-//             margin-right: 4rem;
-
-//         }
-//     }
-// }
-
-// #img-logo {
-//     background-image: url("/images/logo.jpg");
-//     height:15vh;
-//     width: 40vw;
-//     background-repeat: no-repeat;
-//     background-size:auto 100%;
-//     background-position: center;
-//     margin-left: 25rem;
-    
-//   }
-
-//   #user_friends{
-//       .friends-container{
-//         background-color: rgb(236, 231, 231); 
-//         margin-left: 25rem;
-//         margin-right: 25rem;
-
-//       }
-//   }

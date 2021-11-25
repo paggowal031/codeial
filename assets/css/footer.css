@@ -2,7 +2,8 @@
   display: flex;
   width: 100%;
   height: auto;
-  background-image: linear-gradient(to right, green, #45a52d, green);
+  background-image: linear-gradient(to right, #5da820, #34b830, #177a17);
+  margin: 0%;
 }
 
 #footer-container #contact .section-heading {

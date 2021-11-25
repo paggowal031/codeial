@@ -1,4 +1,7 @@
     <link rel="stylesheet" href="/css/user_profile.css">
+
+    <img src="<%=user.avatar%>" alt="<%=user.name%>" width="100">
+    
       <h1>
           Codeial / Profile page
       </h1>
@@ -8,7 +11,7 @@
       
       <%if(user.id==profile_user.id){%>
         <!-- if user match then show update form -->
-        <form action="/users/update/<%=profile_user.id%>" method="POST">
+        <form action="/users/update/<%=profile_user.id%>" enctype="multipart/form-data" method="POST">
             <h2>Update Profile</h2>
             <div>
                 <label for="name">Full Name</label>
@@ -30,6 +33,13 @@
                     <input id="dob" name="dob" type="date" placeholder="Enter your date of birth" value="<%=profile_user.dob%>">
                 </div>
                 <hr>
+                <div>
+                    <label for="avatar">Profile picture</label>
+                    <br><br>
+                    <input id="avatar" type="file" name="avatar" placeholder="Profile picture">
+                   
+                <hr>
+                </div>
                 <div>
                     <div>
                         <button type="submit" name="update-button" id="submit-button">

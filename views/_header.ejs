@@ -2,14 +2,18 @@
 
 <header id="layout-header">
     <nav> 
-      <div class="logo">
+
+      <div class="logo" >
             <a href="/">
-              <div  id="img-logoo" alt="connectUs" >ConnectUS</div>
+              <div  id="img-logo" alt="connectUs" style="height: 100%; margin-top: 0%;" > </div>
             </a>
       </div>
+
+
       <div class="auth-links">
         <ul>
             <%if(locals.user){%>
+
               <li>
                   <button>
                   <a href="/users/profile/<%=user.id%>">
@@ -17,6 +21,7 @@
                   </a>
                 </button>
               </li>
+
               <li>
                   <button>
                   <a href="/users/sign-out">Sign Out</a>
@@ -24,17 +29,24 @@
               </li>
     
             <%}else{%>
+
                 <li>
                     <button>
                     <a href="/users/sign-in">Sign In</a>
                     </button>
                 </li>
+
+
                 <li>
                     <button>
                     <a href="/users/sign-up">Sign up</a>
                     </button>
                 </li>
+
+
                 <%}%>
+
+
         </ul>
       </div>
 

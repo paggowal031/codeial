@@ -1,4 +1,7 @@
 const User=require('../models/user');
+const fs=require('fs');
+const path=require('path');
+
 
 module.exports.profile=function(req,res){
 
@@ -18,8 +21,8 @@ module.exports.profile=function(req,res){
    
 }
 
-module.exports.update=function(req,res){
-    if(req.user.id==req.params.id){
+module.exports.update=async function(req,res){
+   /* if(req.user.id==req.params.id){
         User.findByIdAndUpdate(req.params.id,req.body,function(err,user){
             console.log(req.body);
             if(err){
@@ -32,6 +35,47 @@ module.exports.update=function(req,res){
     }else{
         return res.status(401).send('UnAuthorized');
     }
+    */
+
+
+   if(req.user.id==req.params.id){
+
+    try{
+        //finding user
+        let user=await User.findById(req.params.id);
+
+        //updating user
+        User.uploadedAvatar(req,res,function(err){
+            if(err){
+                console.log('*****Multer error',err);
+            }
+            console.log(req.file);
+            user.name=req.body.name;
+            user.email=req.body.email;
+            user.phone=req.body.phone;
+            user.dob=req.body.dob;
+
+            if(req.file){
+//where is upload folder? now its workking yeah resolve
+                //check if user already has an avatar associated with him/her,if present then remove avatar and upload new one
+                if(user.avatar){
+                    fs.unlinkSync(path.join(__dirname,'..',user.avatar));
+                }
+
+                //this is saving the path of the uploaded file into the avatar field in the user
+                user.avatar=User.avatarPath+'/'+req.file.filename;
+            }
+            user.save();
+
+            return res.redirect('back');
+
+        });
+    }catch(err){
+      req.flash('err',err);
+      return res.redirect('back');
+      }
+
+   }
 }
 
 
@@ -63,10 +107,26 @@ module.exports.signUp=function(req,res){
 module.exports.create=function(req,res){
    
     //first check whether password and confirm password are same or not
-    if(req.body.passowrd!=req.body.confirm_password){
-        req.flash('error','Password and Confirm password does not match');
-    return res.redirect('back');
-    }
+
+
+
+    //HAVING A PROBLEM HERE
+
+
+
+
+    // if(req.body.passowrd!=req.body.confirm_password){
+    //     req.flash('error','Password and Confirm password does not match');
+    // return res.redirect('back');
+    // }
+
+
+
+
+
+
+
+    
     //if both password are same then check whether a user with same email id is present or not
     User.findOne({email:req.body.email},function(err,user){
         if(err){
