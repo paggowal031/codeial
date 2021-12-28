@@ -1,7 +1,6 @@
 #footer-container {
   display: flex;
   width: 100%;
-  height: auto;
   background-image: linear-gradient(to bottom, #5da820, #34b830, #5da820);
   margin: 0%;
 }

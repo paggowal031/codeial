@@ -47,7 +47,7 @@
 
     let newPostDom = function (post) {
         console.log(post.user.name)
-        return $(`<li id="post-${post._id}">
+        return $(`
         <li id="post-${post._id}" class="li-post">
         <p>
             <button>
