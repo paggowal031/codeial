@@ -8,7 +8,8 @@ module.exports.create=async function(req,res){
             content:req.body.content,
             user:req.user._id
         });
-
+             
+        await post.populate('user')
         if(req.xhr){
             return res.status(200).json({
                 data:{
@@ -16,6 +17,7 @@ module.exports.create=async function(req,res){
                 },
                 message:"Post Created!"
             });
+            
         } 
 
         req.flash('success','Post published!')

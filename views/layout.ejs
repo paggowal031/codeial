@@ -15,8 +15,12 @@
 
         <%- style %>
     </head>
-    <body style="width: 100%; margin: 0%;">
-        <%- include('_header');%>  
+    <body style="">
+
+        <nav id="header">
+            <%- include('_header');%>  
+
+        </nav>
 
         <!-- flash message -->
         <!-- <%if(flash.success && flash.success.length>0){%>
@@ -31,7 +35,11 @@
         <%- body %>
         </main>
 
-        <%- include('_footer');%>  
+
+        <footer id="footer">
+            <%- include('_footer');%>  
+
+        </footer>
 
 
         <!-- need to add script tag here which are coming from individual files -->

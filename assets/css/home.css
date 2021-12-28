@@ -13,10 +13,10 @@
   display: flex;
 }
 
-#home-container #entertainemt {
+#home-container #sidebar {
   width: 25%;
   min-height: auto;
-  height: 100%;
+  height: fit-content;
   background-image: linear-gradient(to right, #d8d8d8, #f8f8f8, #dddada);
 }
 
@@ -31,6 +31,19 @@
 
 #home-container #feed-posts #feed-posts-div #posts-list-container {
   padding: 0%;
+}
+
+#home-container #feed-posts #feed-posts-div #posts-list-container .li-post p button {
+  background-color: #5da820;
+}
+
+#home-container #feed-posts #feed-posts-div #posts-list-container .li-post p button a {
+  text-decoration: none;
+  color: white;
+}
+
+#home-container #feed-posts #feed-posts-div #posts-list-container .li-post p div {
+  padding: 30%;
 }
 
 #home-container #feed-posts #feed-posts-div #posts-list-container ul {

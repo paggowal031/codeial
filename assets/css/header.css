@@ -1,5 +1,5 @@
 #layout-header nav {
-  background-color: #5da820;
+  background-image: linear-gradient(to bottom, #5da820, #34b830, #39b439, #5da820);
   display: flex;
   justify-content: space-between;
   padding: 0;
@@ -40,9 +40,7 @@
 #img-logo {
   background-image: url("/images/logo.jpg");
   height: 5vh;
-  width: 40vw;
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: left;
-  margin: rem;
 }

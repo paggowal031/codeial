@@ -1,3 +1,46 @@
 body {
   background-color: #faf5f5;
 }
+
+h4 {
+  color: #48c748;
+}
+
+h4 a:hover {
+  color: #227722;
+  text-decoration: none;
+}
+
+h4 a {
+  color: #48c748;
+  text-decoration: none;
+}
+
+.container {
+  padding: 1%;
+  background-color: #f1eded;
+}
+
+.container #profileHeadingDiv {
+  background-color: #f8f5f5;
+}
+
+.container #updateFormDiv {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.container #updateFormDiv form {
+  border: grey 1px solid;
+}
+
+.container #updateFormDiv form table {
+  margin-top: 5px;
+}
+
+.container #updateFormDiv form table td {
+  background-color: #f1eded;
+  padding: 2% !important;
+  height: 50px;
+  width: 200px;
+}

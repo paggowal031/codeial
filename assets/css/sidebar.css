@@ -1,0 +1,6 @@
+#sidebarDiv {
+  width: 25%;
+  min-height: auto;
+  height: fit-content;
+  background-image: linear-gradient(to right, #d8d8d8, #f8f8f8, #dddada);
+}

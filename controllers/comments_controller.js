@@ -1,11 +1,17 @@
 const Comment=require('../models/comment');
 const Post=require('../models/post');
 
+const commentsMailer=require('../mailers/comments_mailer');
+
 module.exports.create=async function(req,res){
+
+
  try{
 
    //We need to add comment to a post i.e. check whether post exist or not
    let post=await Post.findById(req.body.post);
+
+
    //if post found
    if(post){
       let comment=await Comment.create({
@@ -17,10 +23,28 @@ module.exports.create=async function(req,res){
      //comment created then add it to post
      post.comments.push(comment)
      post.save();
+    
+     await comment.populate('user','name email');
+
+     commentsMailer.newComment(comment);
+
+     if(req.xhr){
+      //similar for comments to fetch the user id
+      
+
+
+      return res.status(200).json({
+         data:{
+            comment:comment
+         },
+         message:"post created"
+      });
+
+   }
      req.flash('success','Comment added successfully');
      return res.redirect('/');
 
-    }
+   }
   
  }catch(err){
     //  console.log("Error",err);
@@ -30,37 +54,40 @@ module.exports.create=async function(req,res){
     }
 }
 
-module.exports.destroy=async function(req,res){
-       try{
+module.exports.destroy = async function(req, res){
+
+   try{
+       let comment = await Comment.findById(req.params.id);
+
+       if (comment.user == req.user.id){
+
+           let postId = comment.post;
+
+           comment.remove();
+
+           let post = Post.findByIdAndUpdate(postId, { $pull: {comments: req.params.id}});
+
+           // send the comment id which was deleted back to the views
+           if (req.xhr){
+               return res.status(200).json({
+                   data: {
+                       comment_id: req.params.id
+                   },
+                   message: "Post deleted"
+               });
+           }
 
 
-         //find the comment
-      let comment=await Comment.findById(req.params.id);
-          
-      
-      if(comment.user==req.user.id){
-            //delete |  before delete, fetch post.id to delete from there also
-            let postId=comment.post;
-            comment.remove();
+           req.flash('success', 'Comment deleted!');
 
-           let post=await Post.findByIdAndUpdate(postId,{$pull:{
-                comments:req.params.id
-           }});
-           req.flash('success','Comment deleted successfully');
            return res.redirect('back');
-           
-        }else{
-            //if doesn't match
-            req.flash('error','Not Authorized');
-            return res.redirect('back');
-        }
-
-       }catch{
-          //  console.log("Error",err);
-          req.flash('error',err);
-           return;
+       }else{
+           req.flash('error', 'Unauthorized');
+           return res.redirect('back');
        }
-    
-      
-      
-    }
+   }catch(err){
+       req.flash('error', err);
+       return;
+   }
+   
+}

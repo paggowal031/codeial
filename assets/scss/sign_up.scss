@@ -10,9 +10,15 @@ body{
 #page-heading:hover{
     color:rgb(109, 182, 26);
 }
+#signUpFormDiv{
+    border: 2px solid black;
+    margin-left: 20%;
+     margin-right: 20%
+}
 div label{
     color: rgb(123, 177, 22);
 }
+
 hr{
     margin-left: 40rem;
     margin-right: 40rem;
@@ -24,4 +30,8 @@ hr{
 }
 #submit-button:hover{
     background-color: rgb(109, 182, 26);;
+}
+a{
+    color: white;
+      text-decoration: none;
 }

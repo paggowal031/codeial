@@ -3,7 +3,6 @@ const User=require('../models/user');
 
 module.exports.home=async function(req,res){
 
-
   //using async await
   try{
     let posts= await Post.find({})

@@ -11,6 +11,12 @@ body {
   color: #6db61a;
 }
 
+#signUpFormDiv {
+  border: 2px solid black;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
 div label {
   color: #7bb116;
 }
@@ -27,4 +33,9 @@ hr {
 
 #submit-button:hover {
   background-color: #6db61a;
+}
+
+a {
+  color: white;
+  text-decoration: none;
 }

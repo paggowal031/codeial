@@ -1,6 +1,7 @@
 #layout-header{
   nav{
-    background-color:  rgb(93, 168, 32);
+    
+    background-image: linear-gradient(to bottom, rgb(93, 168, 32),rgb(52, 184, 48),rgb(57, 180, 57),rgb(93, 168, 32));
     display: flex;
     justify-content: space-between;
     padding: 0 ;
@@ -44,11 +45,9 @@
   
     background-image: url("/images/logo.jpg");
     height:5vh;
-    width: 40vw;
     background-repeat: no-repeat;
     background-size:auto 100%;
     background-position: left;
-    margin: rem;
     
   
 }

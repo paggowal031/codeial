@@ -2,6 +2,12 @@ body {
   margin: 0px;
 }
 
+#signInFormDiv {
+  border: 2px solid black;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
 #page-heading {
   color: #5da820;
   size: 100px;
@@ -22,9 +28,15 @@ hr {
 
 #submit-button {
   background-color: #5da820;
+  border-radius: 20px;
   color: white;
 }
 
 #submit-button:hover {
   background-color: #6db61a;
+}
+
+a {
+  color: white;
+  text-decoration: none;
 }

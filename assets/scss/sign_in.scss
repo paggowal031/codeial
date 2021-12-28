@@ -1,8 +1,14 @@
 body{
     margin: 0px;
+    ;
 
 }
+#signInFormDiv{
+    border: 2px solid black;
+    margin-left: 20%;
+     margin-right: 20%
 
+}
 #page-heading{
     color: rgb(93, 168, 32);
     size: 100px;
@@ -20,8 +26,13 @@ hr{
 
 #submit-button{
     background-color:rgb(93, 168, 32);
+    border-radius: 20px;
     color: white;
 }
 #submit-button:hover{
     background-color: rgb(109, 182, 26);;
+}
+a{
+    color: white;
+      text-decoration: none;
 }

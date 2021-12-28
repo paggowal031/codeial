@@ -1,34 +1,56 @@
 <html>
-    <head>
-        <title>
-            <%=locals.title%>
-        </title>
-         <!-- Place your kit's code here -->
-      <script src="https://kit.fontawesome.com/6c42c1abc7.js" crossorigin="anonymous"></script>
-      <link rel="stylesheet" href="/css/sign_in.css">
 
-    </head>
-    <body>
-        <h1 id="page-heading">Sign In Form</h1>
-        <form id="sign-in-form" action="/users/create-session" method="POST">
-    
-            <div id="div-email">
-                <label for="email">Email </label>
-                <input id="email" required type="email" name="email" placeholder="Enter your email address ">
-            </div>
-            <hr>
-            <div id="div-password">
-                <label for="password">Password</label>
-                <input id="password" required type="password" name="password" placeholder="Enter your password ">
-            </div>
-            <hr>
-            <div id="div-button">
-                <button type="submit" name="sign-in-button" id="submit-button">
-                    <i class="fas fa-sign-in-alt"></i>
-                    Sign in
-               </button>
+<head>
+    <!-- CSS only -->
+    <title>
+        <%=locals.title%>
+    </title>
+    <!-- Place your kit's code here -->
+    <script src="https://kit.fontawesome.com/6c42c1abc7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/sign_in.css">
 
-        </form>
+</head>
+
+<body>
+    <div id="signInFormDiv">
+        <div class="container-sm align-items-center" style='width: 40%'>
+            <h1 id="page-heading" style="text-align: center;">Sign In Form</h1>
+            <form id="sign-in-form" action="/users/create-session" method="POST">
+
+                <div id="div-email">
+                    <label for="email">Email </label>
+                    <input id="email" required type="email" name="email" placeholder="Enter your email address ">
+                </div>
+                <hr>
+                <div id="div-password">
+                    <label for="password">Password</label>
+                    <input id="password" required type="password" name="password" placeholder="Enter your password ">
+                </div>
+                <hr>
+                <div id="div-button">
+                    <button type="submit" name="sign-in-button" id="submit-button">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Sign in
+                    </button>
+                </div>
+
+            </form>
+            <small>
+                OR
+                <div>
+                    <button >
+                        <a href="/users/auth/google">
+                            Sign in using google
+                        </a>
+                    </button>
+                </div>
+
+            </small>
         </div>
-    </body>
+
+
+
+    </div>
+</body>
+
 </html>
