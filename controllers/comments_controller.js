@@ -3,6 +3,9 @@ const Post=require('../models/post');
 
 const commentsMailer=require('../mailers/comments_mailer');
 
+
+const commentEmailWorker=require('../workers/comment_email_worker');
+
 module.exports.create=async function(req,res){
 
 
@@ -26,7 +29,17 @@ module.exports.create=async function(req,res){
     
      await comment.populate('user','name email');
 
-     commentsMailer.newComment(comment);
+     //commentsMailer.newComment(comment);
+
+     //Now we will use worker
+     let job=queueMicrotask.create('emails',comment).save(function(err){
+         if(err){
+             console.log('Error in creating a queue',err);
+         }
+
+         console.log('job id:  ',job.id);
+     })
+
 
      if(req.xhr){
       //similar for comments to fetch the user id

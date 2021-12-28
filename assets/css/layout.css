@@ -1,12 +1,5 @@
-body {
-  display: flex !important;
-  flex-direction: column !important;
-  position: relative;
-}
-
 body #header {
   width: 100%;
-  height: 10%;
 }
 
 body #layout-main {
