@@ -1,12 +1,22 @@
 
+#new-comment-div{
+    background-color: blue;
 
-#img-logo{
+    table{
+        tr{
+            th{
+                #img-logo{
   
-    background-image: url("../images/logo.jpg");
-    height: 100%; margin-top: 0%;
-    background-repeat: no-repeat;
-    background-size:auto 100%;
-    background-position: left;
-    
-  
+                    background-image: url("/images/logo.jpg");
+                    height: 100%; margin-top: 0%;
+                    background-repeat: no-repeat;
+                    background-size:auto 100%;
+                    background-position: left;
+                    
+                  
+                }
+            }
+        }
+    }
+
 }

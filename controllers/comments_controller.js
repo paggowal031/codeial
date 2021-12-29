@@ -3,7 +3,7 @@ const Post=require('../models/post');
 
 const commentsMailer=require('../mailers/comments_mailer');
 
-
+const queue=require('../config/kue');
 const commentEmailWorker=require('../workers/comment_email_worker');
 
 module.exports.create=async function(req,res){
@@ -29,16 +29,17 @@ module.exports.create=async function(req,res){
     
      await comment.populate('user','name email');
 
-     //commentsMailer.newComment(comment);
+     commentsMailer.newComment(comment);
 
      //Now we will use worker
-     let job=queueMicrotask.create('emails',comment).save(function(err){
+     let job=queue.create('emails',comment).save(function(err){
          if(err){
              console.log('Error in creating a queue',err);
+             return;
          }
 
-         console.log('job id:  ',job.id);
-     })
+         console.log('job enqueued -> id:  ',job.id);
+     });
 
 
      if(req.xhr){

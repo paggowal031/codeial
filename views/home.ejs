@@ -42,7 +42,8 @@
             <% for(u of all_users){%>
                 <div></div>
                 <p>
-                    <a href="/users/profile/<%= u.id %>">
+                    <a href="/users/profile/<%= u.id %>" >
+                        <img src="<%= u.avatar %>" height="30px" width="30px" style="border-radius:25px;">
                         <%= u.name %>
                     </a>
                 </p>
