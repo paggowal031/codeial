@@ -20,6 +20,13 @@
         <small>
             <%= comment.user.name %>
         </small>
+
+        <!--display the likes of this comment-->
+        <small>
+            <a class="toggle-like-button" data-likes="<%=post.likes.length%>" href="/likes/toggle/?id=<%=comment._id%>&type=Comment" >
+                        <%=comment.likes.length%> Likes
+            </a>
+        </small>
     </p>    
      
 </li>
