@@ -10,15 +10,17 @@ class PostComments {
     // constructor is used to initialize the instance of the class whenever a new instance is created
     constructor(postId) {
         this.postId = postId;
-        console.log("@@@@@",postId);
+        //console.log("@@@@@",postId);
         this.postContainer = $(`#post-${postId}`);
+       // console.log("this.postContainer",this.postContainer);
         this.newCommentForm = $(`#post-${postId}-comments-form`);
-        console.log("inside create")
+       // console.log("this.newCommentForm",this.newCommentForm)
+       // console.log("inside create")
 
         this.createComment(postId);
         
         let self = this;
-        console.log("self: ",self)
+       // console.log("self: ",self)
         // call for all the existing comments
         $(' .delete-comment-button', this.postContainer).each(function () {
             self.deleteComment($(this));
@@ -30,6 +32,7 @@ class PostComments {
         let pSelf = this;
         this.newCommentForm.submit(function (e) {
             e.preventDefault();
+            console.log("Inside Comment")
             let self = this;
 
             $.ajax({
@@ -76,7 +79,7 @@ class PostComments {
                  </a>
                 </button>
             </form>
-        </small>
+        </small>   
         ${comment.content}
         <br>
         <small>
@@ -86,7 +89,7 @@ class PostComments {
         <!--display the likes of this comment-->
         <small>
             <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${comment._id}&type=Comment" >
-                        0 Likes
+                      0 Likes
             </a>
         </small>
     </p>    

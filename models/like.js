@@ -5,7 +5,7 @@ const likeSchema=new mongoose.Schema({
         type:mongoose.Schema.ObjectId
     },
     //this defines the object id of the liked object
-    likable:{
+    likeable:{
         type:mongoose.Schema.ObjectId,
         require:true,
         refPath:'onModel'

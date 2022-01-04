@@ -3,7 +3,9 @@
 class ToggleLike{
     constructor(toggleElement){
         this.toggler=toggleElement;
+        //console.log("this.toggler",this.toggler)
         this.toggleLike();
+        //console.log("inside like")
     }
 
 
@@ -13,7 +15,7 @@ class ToggleLike{
             e.preventDefault();
 
             let self=this;
-            
+            //console.log("self*****",self)
             //new way of writing ajax, looks like promises
             $.ajax({
                 type:'POST',
@@ -23,7 +25,7 @@ class ToggleLike{
 
                 let likesCount=parseInt($(self).attr('data-likes'));
 
-                console.log(likesCount);
+               //console.log(likesCount);
 
                 if(data.data.deleted==true){
                     likesCount-=1;

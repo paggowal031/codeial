@@ -18,7 +18,7 @@
     <body style="">
 
         <nav id="header">
-            <%- include('_header');%>  
+            <%- include('_header')%>  
 
         </nav>
 
@@ -37,13 +37,14 @@
 
 
         <footer id="footer">
-            <%- include('_footer');%>  
+            <%- include('_footer')%>  
 
         </footer>
 
 
         <!-- need to add script tag here which are coming from individual files -->
         <%- script %>
+         
         <script>
             <% if(flash.success && flash.success.length>0){%>
                 new Noty({

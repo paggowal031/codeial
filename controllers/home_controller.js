@@ -1,6 +1,17 @@
 const Post=require('../models/post');
 const User=require('../models/user');
 
+let pop=async function(posts)
+{
+    for(postx of posts)
+        {
+            for(commentx of postx.comments)
+            {
+                await commentx.populate('user','name');
+            }
+        }
+}
+
 module.exports.home=async function(req,res){
 
   //using async await
@@ -18,7 +29,8 @@ module.exports.home=async function(req,res){
          path:'likes'
        }
    }).populate('likes');// populating likes for post
-
+   
+   await pop(posts);
    let users=await  User.find({});
 
    return res.render('home',{

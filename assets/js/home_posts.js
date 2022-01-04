@@ -7,7 +7,7 @@
         let newPostForm = $('#new-post-form');
 
         newPostForm.submit(function (e) {
-
+   
             e.preventDefault();
 
             $.ajax({
@@ -15,28 +15,30 @@
                 url: '/posts/create',
                 data: newPostForm.serialize(),
                 success: function (data) {
-                    console.log("data",data)
+                    //console.log("data",data)
                     let newPost = newPostDom(data.data.post);
+                    //console.log("data.data.post.user",data.data.post.user)
+                    //console.log("newPost",newPost)
                     $('#posts-list-container>ul').prepend(newPost);
                     deletePost($(' .delete-post-button', newPost));
 
                 
                     // call the create comment class
-                    
+                   // console.log("data.data.id##############",data.data.post._id)
                     new PostComments(data.data.post._id);
 
                     //enable the functionality of the toggle like button on the new post
                     new ToggleLike($(' .toggle-like-button',newPost));
-                    
+                         
 
-                    new Noty({
-                        theme: 'relax',
-                        text: "Post published!",
-                        type: 'success',
-                        layout: 'topRight',
-                        timeout: 1500
+                    // new Noty({
+                    //     theme: 'relax',
+                    //     text: "Post published!",
+                    //     type: 'success',
+                    //     layout: 'topRight',
+                    //     timeout: 1500
                         
-                    }).show();
+                    // }).show();
 
                 }, error: function (error) {
                     console.log(error.responseText);
@@ -50,59 +52,117 @@
     // method to create a post in DOM
 
     let newPostDom = function (post) {
-        console.log(post.user.name)
-        return $(`
-        <li id="post-${post._id}" class="li-post">
+        console.log(post._id)
+    //     return $(`<li id="post-${post._id}" class="li-post">
+    //     <p>
+    //         <button>
+    //             <a href="/users/profile/${post.user._id}">
+    //                 <img src="${post.user.avatar}" height="30px" width="30px" style="border-radius:25px;">
+    //                 ${post.user.name}
+    //             </a>
+    //         </button>
+    //     <div>
+    //         ${post.content}
+    //     </div>
+
+    //     <!-- display the likes of this post  -->
+    //     <small>
+    //         <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${post._id}&type=Post" >
+    //                     0 Likes
+                        
+    //         </a>
+    //     </small>
+    
+    
+    //     </p>
+    //     <div class="post-comments">
+          
+    //             <form action="/comments/create" method="POST" id="new-comment-form">
+    //                 <input type="text" name="content" placeholder="Add a comment..." required>
+    //                 <input type="hidden" name="post" value="${post._id}">
+    //                 <input type="submit" value="Add Comment">
+    //             </form>
+    
+             
+    
+    //                 <div class="post-comments-list">
+    //                     <ul id="post-comments-${post._id}">
+
+    //                     </ul>
+                          
+    //                 </div>
+    //     </div>
+    
+        
+    //     <div id="delete-button-div">
+    //     <small>
+    //         <form  action="">
+    //             <button type="submit" name="destroy-post" id="destroy-post" >
+    //                 <i class="fas fa-eraser"></i>
+    //                 <a class="delete-post-button" href="/posts/destroy/${post._id}">
+    //                     Delete post
+    //                 </a>
+    //             </button>
+    //         </form>
+    //     </small>
+    // </div>
+    
+    // </li>`)
+
+    return $(`<li id="post-${post._id}" class="li-post">
         <p>
             <button>
-                <a href="/users/profile/${post.user._id}">
+    
+                <a href="/users/profile/${post.user.id}">
                     <img src="${post.user.avatar}" height="30px" width="30px" style="border-radius:25px;">
                     ${post.user.name}
                 </a>
-            </button>
-        <div>
+    
+    
+            </button>   
+            
+            <div>
             ${post.content}
-        </div>
-
-        <!-- display the likes of this post  -->
-        <small>
-            <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${post._id}&type=Post" >
-                        0 Likes
-                        
-            </a>
-        </small>
     
+            </div>
     
+            <!-- display the likes of this post  -->
+            <small>
+                <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${post._id}&type=Post" >
+                                 0 Likes
+                </a>
+            </small>
         </p>
+    
+    
         <div class="post-comments">
-          
-                <form action="/comments/create" method="POST" id="new-comment-form">
+            
+                <form action="/comments/create" method="POST" id="post-${post._id}-comments-form">
                     <input type="text" name="content" placeholder="Add a comment..." required>
                     <input type="hidden" name="post" value="${post._id}">
                     <input type="submit" value="Add Comment">
                 </form>
     
-             
     
                     <div class="post-comments-list">
                         <ul id="post-comments-${post._id}">
-                          
+                            
+                        </ul>
                     </div>
         </div>
     
-        
-        <div id="delete-button-div">
-        <small>
-            <form  action="">
-                <button type="submit" name="destroy-post" id="destroy-post" >
-                    <i class="fas fa-eraser"></i>
-                    <a class="delete-post-button" href="/posts/destroy/${post._id}">
-                        Delete post
-                    </a>
-                </button>
-            </form>
-        </small>
-    </div>
+            <div id="delete-button-div">
+                <small>
+                    <form  action="">
+                        <button type="submit" name="destroy-post" id="destroy-post" >
+                            <i class="fas fa-eraser"></i>
+                            <a class="delete-post-button" href="/posts/destroy/${post._id}">
+                                Delete post
+                            </a>
+                        </button>
+                    </form>
+                </small>
+            </div>
     
     </li>`)
     }
@@ -143,7 +203,7 @@
 
         // get the post's id by splitting the id attribute
         let postId = self.prop('id').split("-")[1];
-       new  PostComments(postId);
+         new  PostComments(postId);
     });
 }
 
