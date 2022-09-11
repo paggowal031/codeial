@@ -1,7 +1,7 @@
 #img-logo {
   background-image: url("/images/logo.jpg");
   height: 15vh;
-  width: 40vw;
+  width: 50vw;
   max-width: 70%;
   background-repeat: no-repeat;
   background-size: auto 100%;
@@ -14,7 +14,7 @@
 }
 
 #home-container #sidebar {
-  width: 25vw;
+  width: 0vw;
   min-height: auto;
   height: fit-content;
   background-image: linear-gradient(to right, #d8d8d8, #f8f8f8, #dddada);
@@ -42,6 +42,10 @@
   color: white;
 }
 
+#home-container #feed-posts #feed-posts-div #posts-list-container .li-post p button:hover {
+  backgroud-color: #88b06a;
+}
+
 #home-container #feed-posts #feed-posts-div #posts-list-container .li-post p div {
   padding: 30%;
 }
@@ -61,12 +65,12 @@
   margin-left: 80%;
 }
 
-#home-container #user-friends {
+#home-container #userAndFriendDiv {
   height: 100%;
-  width: 15vw;
+  width: 20vw;
   padding: 0px;
-  border: 0.5px solid #d8d6d6;
+  border: 0.5px solid #913d3d;
   line-height: 100%;
-  margin-left: 0px;
-  background-image: linear-gradient(to right, #d8d8d8, #f8f8f8, #dddada);
+  margin-left: 15vw;
+  background-image: linear-gradient(30deg, #88b06a, #b8e395, #88b06a);
 }

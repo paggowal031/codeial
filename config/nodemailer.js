@@ -9,7 +9,7 @@ let transporter=nodemailer.createTransport({
     secure:false,
     auth:{
         user:'info.connectus24x7@gmail.com',
-        pass:'Shipwright@10610'
+        pass:'gmrzcnqdemrqzdqu'
     }
 });
 

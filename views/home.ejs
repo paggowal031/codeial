@@ -4,8 +4,8 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <div id="home-container">
 
-               <!-- ------------------------------------ -->
-     <!-- if use logged in / signed in the show home page content -->
+    <!-- ------------------------------------ -->
+    <!-- if use logged in / signed in the show home page content -->
 
     <% if(locals.user){ %>
         <section id="sidebar">
@@ -37,38 +37,72 @@
         </section>
 
 
-        <section id="user-friends">
-            <h4 style="text-align: center;">Friends</h4>
-            <% for(u of all_users){%>
-                <div></div>
-                <p>
-                    <a href="/users/profile/<%= u.id %>" >
-                        <img src="<%= u.avatar %>" height="30px" width="30px" style="border-radius:25px;">
-                        <%= u.name %>
-                    </a>
-                </p>
-                <% } %>
-        </section>
+        <div id="userAndFriendDiv">
+
+            <section id="user-friends">
+                <h4 style="text-align: center;">Friends</h4>
+                <% for(u of all_users){%>
+                    <div></div>
+                    <p>
+                        <a href="/users/profile/<%= u.id %>">
+                            <img src="<%= u.avatar %>" height="30px" width="30px" style="border-radius:25px;">
+                            <%= u.name %>
+                        </a>
+                    </p>
+                    <% } %>
+            </section>
+
+            <section id="users">
+                <h4 style="text-align: center;">Users</h4>
+                <% for(u of all_users){%>
+                    <div></div>
+                    <p>
+                        <a href="/users/profile/<%= u.id %>">
+                            <img src="<%= u.avatar %>" height="30px" width="30px" style="border-radius:25px;">
+                            <%= u.name %>
+                                <!-- display the friends add button  -->
+                                <small>
+
+                                    <button>
+                                        <a class="toggle-friends-button" href="/">
+                                            Add friend
+                                        </a>
+                                    </button>
+
+                                </small>
+                        </a>
+                    </p>
+                    <% } %>
+            </section>
+
+
+
+
+        </div>
 
         <% } %>
 
-                      
-                <!-- ------------------------------------ -->
+
+            <!-- ------------------------------------ -->
 
 
 
 </div>
 
-        <!-- if user not logged in / signed in the show home landing page content -->
-        <div class="container" >
-        <% if(!locals.user){ %>
-            <marquee scrollAmount="25" direction="right" height="100px" style="color: red; font-size: 30px; font-weight: bold; ">
-                ConnectUs under development!
-                </marquee>    
-         <% } %>
-        </div>
+<!-------------------if user not logged in / signed in the show home landing page content ----------------------------->
+<div class=" container">
+    <% if(!locals.user){ %>
+        <marquee scrollAmount="25" direction="right" height="100px"
+            style="color: red; font-size: 30px; font-weight: bold; ">
+            ConnectUs under development!
+        </marquee>
+        <% } %>
+</div>
 
 
+
+<!---------------------------------------------Scripts----------------------------------------------------->
+<script src="/js/toggle_friend.js"></script>
 <script src="/js/home_post_comments.js"></script>
 
 <script src="/js/home_posts.js"></script>
@@ -78,8 +112,8 @@
 <script src="/js/toggle_likes.js"></script>
 
 <script>
-    $('.toggle-like-button').each(function(){
-        let self=this;
-        let toggleLike=new ToggleLike(self);
+    $('.toggle-like-button').each(function () {
+        let self = this;
+        let toggleLike = new ToggleLike(self);
     });
 </script>

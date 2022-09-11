@@ -20,5 +20,5 @@ router.use('/api',require('./api'));
 
 router.use('/likes',require('./likes'))
 
-
+router.use('/friends',require('./friends'))
 module.exports=router;
